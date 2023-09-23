@@ -12,7 +12,6 @@ import com.infinity.accounts.service.IAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
@@ -30,10 +29,6 @@ public class AccountsServiceImpl implements IAccountService {
             throw new CustomerAlreadyExists("Customer already registered with mobile number "
                     + customer.getMobileNumber());
         }
-        customer.setCreatedAt(LocalDateTime.now());
-        customer.setCreatedBy("Admin");
-        //customer.setUpdatedAt(LocalDateTime.now());
-        //customer.setUpdatedBy("Admin");
         Customer savedCustomer = customerRepository.save(customer);
 
 
@@ -48,8 +43,6 @@ public class AccountsServiceImpl implements IAccountService {
         newAccount.setAccountNumber(accountNumber);
         newAccount.setAccountType(AccountsConstants.SAVINGS);
         newAccount.setBranchAddress(AccountsConstants.ADDRESS);
-        newAccount.setCreatedAt(LocalDateTime.now());
-        newAccount.setCreatedBy("Admin");
 
         return newAccount;
     }
