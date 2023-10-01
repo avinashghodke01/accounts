@@ -1,0 +1,19 @@
+# Declare variables to be passed into your templates
+
+deploymentName: account-service-deployment
+serviceName: accounts-service
+appLabel: accounts-service
+appName: accounts-service
+
+replicaCount: 1
+
+image:
+  repository: avinashghodke/accounts-service
+  tag: v1.0.0
+
+containerPort: 8080
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
